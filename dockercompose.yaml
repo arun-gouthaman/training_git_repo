@@ -9,15 +9,15 @@ services:
                 links:
                         - redis
                 networks:
-                        - new_network
+                        - new_training_nw
         redis:
                 image: redis
                 expose:
                         - "6379"
                 networks:
-                        - new_network
+                        - new_training_nw
 networks:
-        new_network:
+        new_training_nw:
                 ipam:
                         driver: default
                         config:
