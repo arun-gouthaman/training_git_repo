@@ -27,12 +27,17 @@ pipeline {
                 }
             }
         }
-        stage('COMPOSEFILE') {
+        stage('CREATE_CLUSTER') {
             steps {
-                echo 'Running compose file'
-                sh 'docker-compose -f dockercompose.yaml up -d'
+                script {
+                    try {
+                        sh 'kind create cluster --config cluster_configfile'
+                    } 
+                    catch (err) {
+                        echo "Caught: ${err}"
+                    }
+                }
             }
         }
-    }
 }
 
