@@ -17,6 +17,8 @@ spec:
       labels:
         app: training-deploy
     spec:
+      nodeSelector:
+              ssd: hdd
       containers:
       - image: arun198628/new_training_image:1.0
         name: new-training-image-s76cc
