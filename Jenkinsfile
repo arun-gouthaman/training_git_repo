@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script{
                     try {
-                        sh 'docker rm -f jenkins_job_container'
+                        sh 'kubectl delete deploy training-deploy'
                     }
                     catch (err) {
                         echo "Caught: ${err}"
