@@ -21,15 +21,11 @@ spec:
       - image: arun198628/new_training_image:1.0
         name: new-training-image-s76cc
         resources: {}
-        env:
-                - name: dbhost
-                  valueFrom:
-                          configMapKeyRef:
-                                  name: training-cm
-                                  key: DBHOST
-                - name: dbpass
-                  valueFrom:
-                          configMapKeyRef:
-                                  name: training-cm
-                                  key: DBPASS
+        volumeMounts:
+                - name: env_vol
+                  mountPath: /etc/foo
+      volumes:
+              - name: env_vol
+                configMap:
+                        name: training-cm
 status: {}
