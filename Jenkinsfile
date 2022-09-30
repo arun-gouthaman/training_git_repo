@@ -15,7 +15,7 @@ pipeline {
                 sh 'docker build -t jenkins_job_docker_image:1.0 .'
             }
         }
-        stage ('CONTINER_DELETE') {
+        stage ('CONTAINER_DELETE') {
             steps {
                 script{
                     try {
@@ -27,10 +27,10 @@ pipeline {
                 }
             }
         }
-        stage('CREATE_POD') {
+        stage('CREATE_DEPLOY') {
             steps {
-                echo 'Building pod'
-                sh 'kubectl apply -f pod.yaml'
+                echo 'Building deployment'
+                sh 'kubectl apply -f deploy.yaml'
             }
         }
     }
