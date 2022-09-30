@@ -1,0 +1,24 @@
+version: "2"
+services:
+        app_container:
+                build: .
+                volumes:
+                        - /home/ubuntu/training/registry_dir:/opt/host_vol 
+                ports:
+                        - "80:5000"
+                links:
+                        - redis
+                networks:
+                        - new_network
+        redis:
+                image: redis
+                expose:
+                        - "6379"
+                networks:
+                        - new_network
+networks:
+        new_network:
+                ipam:
+                        driver: default
+                        config:
+                                - subnet: 192.168.0.0/16
