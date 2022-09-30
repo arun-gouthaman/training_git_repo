@@ -27,10 +27,10 @@ pipeline {
                 }
             }
         }
-        stage('CONTAINER') {
+        stage('COMPOSEFILE') {
             steps {
-                echo 'BUILDING CONTAINER'
-                sh 'docker run -d --name jenkins_job_container -p 8000:8080 jenkins_job_docker_image:1.0'
+                echo 'Running compose file'
+                sh 'docker-compose -f dockercompose.yaml up -d'
             }
         }
     }
