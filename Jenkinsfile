@@ -27,16 +27,10 @@ pipeline {
                 }
             }
         }
-        stage('CREATE_CLUSTER') {
+        stage('CREATE_POD') {
             steps {
-                script {
-                    try {
-                        sh 'kind create cluster --config cluster_configfile'
-                    } 
-                    catch (err) {
-                        echo "Caught: ${err}"
-                    }
-                }
+                echo 'Building pod'
+                sh 'kubectl apply -f pod.yaml'
             }
         }
     }

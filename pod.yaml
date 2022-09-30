@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: training-pod
+  name: training-pod
+spec:
+  containers:
+  - image: training2_pipeline_job_app_container:1.0
+    name: training-pod
+    ports:
+    - containerPort: 8000
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
