@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: training_deploy
+  name: training_deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: training_deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: training_deploy
+    spec:
+      containers:
+      - image: jenkins_job_docker_image:1.0
+        name: jenkins-job-docker-image-nxkn9
+        ports:
+        - containerPort: 8000
+        resources: {}
+status: {}
