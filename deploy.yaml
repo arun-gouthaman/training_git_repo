@@ -24,8 +24,13 @@ spec:
         volumeMounts:
                 - name: envvol
                   mountPath: /etc/foo
+                - name: pvcvol
+                  mountPath: /etc/pvc_vol
       volumes:
               - name: envvol
                 configMap:
                         name: training-cm
+              - name: pvcvol
+                persistentVolumeClaim:
+                        claimName: training-pvc
 status: {}
