@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: training_deploy
-  name: training_deploy
+    app: training-deploy
+  name: training-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: training_deploy
+      app: training-deploy
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: training_deploy
+        app: training-deploy
     spec:
       containers:
       - image: jenkins_job_docker_image:1.0
