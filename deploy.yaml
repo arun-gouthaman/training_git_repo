@@ -18,9 +18,7 @@ spec:
         app: training-deploy
     spec:
       containers:
-      - image: jenkins_job_docker_image:1.0
-        name: jenkins-job-docker-image-nxkn9
-        ports:
-        - containerPort: 8000
+      - image: arun198628/new_training_image:1.0
+        name: new-training-image-s76cc
         resources: {}
 status: {}
