@@ -22,10 +22,10 @@ spec:
         name: new-training-image-s76cc
         resources: {}
         volumeMounts:
-                - name: env_vol
+                - name: envvol
                   mountPath: /etc/foo
       volumes:
-              - name: env_vol
+              - name: envvol
                 configMap:
                         name: training-cm
 status: {}
